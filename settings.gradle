@@ -1,0 +1,7 @@
+rootProject.name = 'choice-scm'
+include 'choice-scm-dao'
+include 'choice-scm-service'
+include 'choice-scm-entity'
+include 'choice-scm-utils'
+include 'choice-scm-web'
+

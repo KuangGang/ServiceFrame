@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.choice.scm.dao.mapper.ScmSettlementDao">
+
+    <insert id="insert" parameterType="com.choice.scm.entity.scm.ScmSettlement">
+        insert
+	    into
+		new_cloud_scm.scm_settlement(
+			id,
+			tenant_id,
+			store_id,
+			supplier_id,
+			settlement_type,
+			settlement_code,
+			settlement_amount,
+			paid_amount,
+			to_be_paid_amount,
+			bill_status,
+			store_status,
+			pay_status,
+			cash_status,
+			check_user,
+			check_time,
+			check_remark,
+			obsolete_res,
+			return_res,
+			file_url,
+			create_user,
+			create_time,
+			update_user,
+			update_time,
+			delete_flag,
+			ext_info,
+			version,
+			remark
+		)
+	values(
+		#{id},
+		#{tenantId},
+		#{storeId},
+		#{supplierId},
+		#{settlementType},
+		#{settlementCode},
+		#{settlementAmount},
+		#{paidAmount},
+		#{toBePaidAmount},
+		#{billStatus},
+		#{storeStatus},
+		#{payStatus},
+		#{cashStatus},
+		#{checkUser},
+		#{checkTime},
+		#{checkRemark},
+		#{obsoleteRes},
+		#{returnRes},
+		#{fileUrl},
+		#{createUser},
+		#{createTime},
+		#{updateUser},
+		#{updateTime},
+		#{deleteFlag},
+		#{extInfo},
+		#{version},
+		#{remark}
+		);
+    </insert>
+
+</mapper>

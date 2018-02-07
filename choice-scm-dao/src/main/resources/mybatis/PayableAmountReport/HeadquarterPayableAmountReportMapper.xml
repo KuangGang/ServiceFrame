@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.choice.scm.dao.mapper.report.HeadquarterPayableAmountReportDao">
+    <select id="findPayableAmountReport" resultType="com.choice.scm.dao.mapper.report.ReportQP">
+        SELECT
+        ss.supp_code,
+        ss.supp_full_name,
+        sum(sst.settlement_amount),
+        sum(sst.paid_amount),
+        sum(sst.to_be_paid_amount)
+        FROM
+        scm_supplier  ss
+        left join scm_settlement sst on sst.supplier_id=ss.id
+        where sst.settlement_type='AF01'
+        and   sst.bill_status &lt;&gt; 'AD01'
+        and   sst.tenant_id=#{tenantId}
+        and   ss.id=#{supplierId}
+        and   sst.create_time BETWEEN #{beginDate} and #{endDate}
+        group by
+        ss.supp_code,
+        ss.supp_full_name
+    </select>
+</mapper>

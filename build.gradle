@@ -1,0 +1,46 @@
+group 'com.choice.scm'
+version '1.0-SNAPSHOT'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.9.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+allprojects {
+    //版本管理
+    ext {
+        druidVersion                = '1.1.6'
+        mybatisSpringBootVersion    = '1.3.1'
+        swagger2Version             = '2.8.0'
+        mysqlVersion                = '8.0.8-dmr'
+        lombokVersion               = '1.16.20'
+    }
+    repositories {
+        jcenter()
+        maven{ url 'http://101.200.61.20:8081/nexus/content/repositories/releases/'}
+        maven{ url 'http://101.200.61.20:8081/nexus/content/repositories/snapshots/'}
+    }
+}
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: "org.springframework.boot"
+
+    sourceCompatibility = 1.8
+
+    springBoot {
+        executable = true
+        buildInfo()
+    }
+
+    dependencies {
+    }
+}

@@ -1,0 +1,8 @@
+group 'com.choice.scm'
+version '1.0-SNAPSHOT'
+
+dependencies {
+    compile project(":choice-scm-dao")
+    compile 'com.github.pagehelper:pagehelper-spring-boot-starter:1.2.1'
+    testCompile("org.springframework.boot:spring-boot-starter-test")
+}
